@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="display-4 text-primary">Board Messages</h1>
+<%= render 'form', board_message: @board_message %>
+<p><%= link_to 'go home >>', controller: :board_users %></p>
+<p><%= link_to 'Sign out >>', destroy_account_session_path, method: :delete %></div>
+<hr>
+<h2 class="h4">※Posted Messages.</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th width="200px">User</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @board_messages.each do |board_message| %>
+      <tr>
+        <td><%= board_message.content %></td>
+        <td><%= link_to board_message.board_user.nickname, controller: :board_users, action: :show, id:board_message.board_user_id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<div><%= paginate @board_messages %></div>
+<hr>
+<div>copyright SYODA-Tuyano 2020.</div>

@@ -1,0 +1,8 @@
+<h1 class="display-4 text-primary">User Home</h1>
+<h2 class="h4">※<%= @board_user.account.email %> さんの設定</h2>
+<%= render 'form', board_user: @board_user %>
+<hr>
+<p><%= link_to '<< go back', controller: :board_messages %></p>
+
+<hr>
+<div>copyright SYODA-Tuyano 2020.</div>
